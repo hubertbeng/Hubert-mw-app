@@ -1,0 +1,251 @@
+<div class="homepage">
+    <!-- HEADER -->
+    <div 
+    class="border-b shadow-sm sticky top-0 z-[1000] bg-white w-full flex-row flex items-center"
+    >
+    <div class="flex flex-row w-1/2">
+       <img 
+        src="https://cdn.discordapp.com/attachments/1187484790790836356/1188506122177490954/image.png?ex=659ac594&is=65885094&hm=8f90b8fd493c0c6581ab4cc0922ce1d03786711f2caa1fa4b4141483bc0bd116&"
+        alt="Logo"
+        class="px-5 py-3 flex"
+        > 
+    </div>
+        <div class="flex flex-row-reverse w-1/2 pr-10">
+            <div class="mr-7">
+              <button>
+                <i class="fa-regular fa-user 
+                text-2xl"
+                >
+                </i>
+            </button>  
+            </div>
+            <div class="mr-10">
+                <button>
+                    <i class="fa-regular fa-bell 
+                    text-2xl" 
+                    >
+                    </i>
+            </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="min-h-screen">
+        <div class="flex justify-between">
+            <div class="quicksand-header flex flex-row w-1/2 mx-4 my-4 text-indigo-700">MY BILLBOARD</div>
+            <div class="flex flex-row-reverse w-1/2 my-4 mr-10">
+                <button class="quicksand-normal border rounded-lg px-4 shadow-md text-white bg-blue-800 hover:text-gray-700 hover:tracking-wide" (click)="sidebarVisible = true">
+                    <i class="fa-solid fa-plus">ADD BILLBOARD</i>
+                </button>
+                <p-sidebar 
+                [(visible)]="sidebarVisible" 
+                position="right">
+                    <h3>Right Sidebar</h3>
+                </p-sidebar>
+            </div>
+        </div>
+
+        <div class="card">
+            <p-tabView>
+                <p-tabPanel header="Header I">
+                    <div class="card">
+                        <p-table
+                            #dt2
+                            [value]="billboards"
+                            dataKey="id"
+                            [rows]="10"
+                            [showCurrentPageReport]="true"
+                            [rowsPerPageOptions]="[10, 25, 50]"
+                            [loading]="loading"
+                            [paginator]="true"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                            [globalFilterFields]="['BBName', 'BBId', 'BBAmt', 'NetType']"
+                            [tableStyle]="{ 'min-width': '75rem' }"
+                            >
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="width:25%">Billboard Name</th>
+                                    <th style="width:25%">Billboard ID</th>
+                                    <th style="width:25%">Billboard Amount</th>
+                                    <th style="width:25%">Network Type</th>
+                                    <th style="width: 25%;"></th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBName"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBId"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBAmt"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="NetType"></p-columnFilter>
+                                    </th>
+                                    <th style="width: 25%;"></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-billboards>
+                                <tr>
+                                    <td>
+                                        {{ billboards.BBName }}
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.BBId }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.BBAmt }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.NetType }}</span>
+                                    </td>
+                                    <td>
+                                        <button (click)="showDialog()"><i class="fa-solid fa-pen"></i></button>
+                                        <p-dialog header="Header" [(visible)]="dialogVisible" [style]="{width: '50vw'}">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            </p>
+                                        </p-dialog>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="5">No customers found.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Header II">
+                    <div class="card">
+                        <p-table
+                            #dt2
+                            [value]="billboards"
+                            dataKey="id"
+                            [rows]="10"
+                            [showCurrentPageReport]="true"
+                            [rowsPerPageOptions]="[10, 25, 50]"
+                            [loading]="loading"
+                            [paginator]="true"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                            [globalFilterFields]="['BBName', 'BBId', 'BBAmt', 'NetType']"
+                            [tableStyle]="{ 'min-width': '75rem' }"
+                            >
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="width:25%">BBName</th>
+                                    <th style="width:25%">BBId</th>
+                                    <th style="width:25%">BBAmt</th>
+                                    <th style="width:25%">NetType</th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBName"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBId"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBAmt"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="NetType"></p-columnFilter>
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-billboards>
+                                <tr>
+                                    <td>
+                                        {{ billboards.BBName }}
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.BBId }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.BBAmt }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.NetType }}</span>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="5">No customers found.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Header III">
+                    <div class="card">
+                        <p-table
+                            #dt2
+                            [value]="billboards"
+                            dataKey="id"
+                            [rows]="10"
+                            [showCurrentPageReport]="true"
+                            [rowsPerPageOptions]="[10, 25, 50]"
+                            [loading]="loading"
+                            [paginator]="true"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                            [globalFilterFields]="['BBName', 'BBId', 'BBAmt', 'NetType']"
+                            [tableStyle]="{ 'min-width': '75rem' }"
+                            >
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="width:25%">BBName</th>
+                                    <th style="width:25%">BBId</th>
+                                    <th style="width:25%">BBAmt</th>
+                                    <th style="width:25%">NetType</th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBName"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBId"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="BBAmt"></p-columnFilter>
+                                    </th>
+                                    <th>
+                                        <p-columnFilter type="text" field="NetType"></p-columnFilter>
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-billboards>
+                                <tr>
+                                    <td>
+                                        {{ billboards.BBName }}
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.BBId }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.BBAmt }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ml-1 vertical-align-middle">{{ billboards.NetType }}</span>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="5">No customers found.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+
+    </div>
+
+</div>

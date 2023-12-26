@@ -1,0 +1,48 @@
+.quicksand-header{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 44px;
+    font-weight: 600;
+}
+
+.quicksand-normal{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: inherit;
+}
+
+:host ::ng-deep .p-tabview-nav{
+    justify-content: center;
+    gap: 25px;
+    font-size: larger;
+    font-family: 'Quicksand', sans-serif;
+    border-bottom: 10px;
+}
+
+
+:host ::ng-deep .p-tabview-nav a{
+    color: var(--blue-800);
+    font-style: italic;
+    width: 300px;
+    justify-content: center;
+    border-radius: 3px 3px 0 0;
+    margin-top: 10px;
+    border: 5px;
+}
+
+:host ::ng-deep ul{
+    background-color: blue;
+}
+
+:host ::ng-deep .p-tabview-nav .p-highlight a{
+    color: var(--blue-500);
+    font-style: unset;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    box-shadow: 0px -1px 2px 6px var(--blue-300);
+}

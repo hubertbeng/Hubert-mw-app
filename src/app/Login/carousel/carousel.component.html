@@ -1,0 +1,10 @@
+<div class="carousel relative">
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="carousel">
+        <img [src]="image.src" >
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  <app-card></app-card>
+</div>
