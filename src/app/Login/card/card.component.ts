@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../../app.routes';
-
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, AppRoutingModule, RouterModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, RouterModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
